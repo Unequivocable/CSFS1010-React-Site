@@ -1,29 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
- 
-const resume = () => {
+import Nav from './page-components/Nav';
+import Header from './page-components/Header' 
+
+const Resume = () => {
     return (
-       <div>
-          <body className="winter spring autumn summer">
-            <header>
-        <div className="logoGrid winter spring autumn summer">
-          <div className="wlogo">Winter</div>
-          <div className="slogo">Spring</div>
-          <div className="alogo">Autumn</div>
-          <div className="sumlogo">Summer</div>
-        </div>
-        <div className="banner winter spring autumn summer" >
-          <h1>Dustin Siggelkow's Web Development Site</h1>
-        </div>
-      </header>
-      <nav className="winter spring autumn summer">
-        <ul>
-          <li><NavLink to="/">Home</NavLink></li> 
-          <li className="active winter spring autumn summer"><NavLink to="/resume">Resume</NavLink></li>
-          <li><NavLink to="/portfolio">Portfolio</NavLink></li>
-          <li><NavLink to="/contact">Contact</NavLink></li>
-          </ul>
-      </nav>
+          <>
+            <Header />
+            <Nav resume="active" />
       <main>
       <section class="winter spring autumn summer">
         <article>
@@ -54,9 +37,8 @@ const resume = () => {
         </article>
       </section>
       </main>
-        </body>
-       </div>
+    </>
     );
 }
  
-export default resume;
+export default Resume;

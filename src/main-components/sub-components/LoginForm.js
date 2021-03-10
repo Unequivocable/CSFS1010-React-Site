@@ -27,7 +27,9 @@ const LoginForm = () => {
                     setToken(loginPost.data)
                     setLogin("loggedIn")
                 } catch(error){
-                    console.log(error.response.data.error)
+                    const response = error.response.data.invalid ? `${error.response.data.message} ${error.response.data.invalid}` : `${error.response.data.message}`;
+                    alert(response)
+                    console.log(error)
                     }
                 setSubmitting(false);
                 resetForm();

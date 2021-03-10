@@ -1,44 +1,35 @@
-import React, { useContext } from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
-import { TextField } from './Fields'
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios'
 import UserContext from './User'
 
 const EntryForm = () => {
     const { token } = useContext(UserContext);
+    const [data, setData] = useState( [] )
+    
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios({
+            method: 'get',
+            url: "contact_form/entries",
+            headers: { Authorization: `Bearer ${token.token}` }
+           });
+        setData(response.data);
+        }
+        getData()
+    }, [token.token]);
 
     return (
-        <Formik 
-            initialValues = {{
-                id: ""
-            }}
-            validationSchema = {Yup.object({
-                id: Yup.string()
-                    .required('Required'),
-            })}
-            onSubmit = {async (values, { setSubmitting, resetForm }) => {
-                try {
-                    // const loginPost = await axios.post('/auth', values)
-                    // setToken(loginPost.data)
-                    // setLogin("loggedIn")
-                } catch(error){
-                    console.log(error.response.data.error)
-                    }
-                setSubmitting(false);
-                resetForm();
-            }}
-        >
-            <Form>
-                <TextField
-                    label="Enter ID to view a specific entry"
-                    name="id"
-                    type="text"
-                    placeholder="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-                />
-            <button className="signin">View all contact form entries</button>
-                </Form>
-        </Formik>
+        <>
+            {console.log(data)}
+            {data.slice(0).reverse().map(entry => (
+                <li key={entry.id}>Name : {entry.name} <br />
+                Email: {entry.email} <br />
+                Phonenumber: {entry.phoneNumber} <br />
+                Message: {entry.content} <br />
+                Entry ID: {entry.id}</li>
+
+            ))}
+    </>
     );
 };
 

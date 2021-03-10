@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from './Fields'
@@ -7,8 +7,23 @@ import UserContext from './User'
 
 const EntrybyIDForm = () => {
     const { token } = useContext(UserContext);
+    const [entry, setEntry] = useState({})
+    const [id, setId] = useState("")
+
+    useEffect(() => {
+        const getDatabyID = async () => {
+            const response = await axios({
+            method: 'get',
+            url: `/contact_form/entries/${id}`,
+            headers: { Authorization: `Bearer ${token.token}` }
+           });
+        setEntry(response.data);
+        }
+        getDatabyID()
+    }, [token.token, id]);
 
     return (
+        <>
         <Formik 
             initialValues = {{
                 id: ""
@@ -17,14 +32,8 @@ const EntrybyIDForm = () => {
                 id: Yup.string()
                     .required('Required'),
             })}
-            onSubmit = {async (values, { setSubmitting, resetForm }) => {
-                try {
-                    // const loginPost = await axios.post('/auth', values)
-                    // setToken(loginPost.data)
-                    // setLogin("loggedIn")
-                } catch(error){
-                    console.log(error.response.data.error)
-                    }
+            onSubmit = {(values, { setSubmitting, resetForm }) => {
+                setId(values.id)
                 setSubmitting(false);
                 resetForm();
             }}
@@ -39,6 +48,13 @@ const EntrybyIDForm = () => {
                 <button type="submit" className="signin">Submit</button>
                 </Form>
         </Formik>
+        {entry.id ? <li key={entry.id}>Name : {entry.name} <br />
+                Email: {entry.email} <br />
+                Phonenumber: {entry.phoneNumber} <br />
+                Message: {entry.content} <br />
+                Entry ID: {entry.id}</li> : null}
+        
+        </>
     );
 };
 

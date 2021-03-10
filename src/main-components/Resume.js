@@ -8,7 +8,7 @@ const Resume = () => {
             <Header />
             <Nav resume="active" />
       <main>
-      <section class="winter spring autumn summer">
+      <section className="winter spring autumn summer">
         <article>
           I am an experienced business analsyt who has worked in the Financial IT sector for over fifteen years.  I am currently expanding my capabilities and upgrading my technical abilities to include full-stack web development and UI/UX Design. 
           <h2>Work Experience</h2>

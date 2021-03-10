@@ -1,13 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from './Fields'
 import axios from 'axios'
-import UserContext from './User'
 
 const AddUserForm = () => {
-    const { token } = useContext(UserContext);
-
     return (
         <Formik 
             initialValues = {{
@@ -32,9 +29,8 @@ const AddUserForm = () => {
             })}
             onSubmit = {async (values, { setSubmitting, resetForm }) => {
                 delete values.confirmPassword
-                const headers = { headers: { Authorization: `Bearer ${token}` }               }
                 try {
-                    await axios.post('/users', values, { headers })
+                    await axios.post('/users', values)
                 } catch(error){
                     console.log(error.response.data.error)
                     }

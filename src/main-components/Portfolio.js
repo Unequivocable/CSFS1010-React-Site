@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './page-components/Nav'
 import Header from './page-components/Header'
+import { formPreview, adminPreview } from '../Images/index'
  
 const Portfolio = () => {
     return (
@@ -20,7 +21,7 @@ const Portfolio = () => {
         </article>
         <article className="portfolio">
           <div className="image">
-            <a href="portfolio/Exercise2.html" target="_blank"><img src="portfolio/Images/formPreview.jpg" width="150px" alt="Exercise 2 Preview"/><br />Contact Form Exercise</a>
+            <a href="portfolio/Exercise2.html" target="_blank"><img src={formPreview} width="150px" alt="Exercise 2 Preview"/><br />Contact Form Exercise</a>
           </div>          
           <div className="content">
             <h2>Contact Form Exercise</h2>
@@ -33,7 +34,7 @@ const Portfolio = () => {
                 This exercise required a branching series of if statements to validate that the proper username of "Admin" is entered along with a password of "TheMaster".   <br />Click to open the page in a new tab.
           </div>
           <div className="image">
-            <a href="portfolio/adminLogin.html" target="_blank"><img src="portfolio/Images/adminPreview.jpg" width="150px" alt="Admin Login Preview"/><br />Admin Login Exercise</a>
+            <a href="portfolio/adminLogin.html" target="_blank"><img src={adminPreview} width="150px" alt="Admin Login Preview"/><br />Admin Login Exercise</a>
           </div>
         </article>
         <article className="portfolio">

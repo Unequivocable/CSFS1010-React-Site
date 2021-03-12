@@ -22,7 +22,6 @@ const App = () => {
         token, setToken, 
         }}>
       <BrowserRouter>
-      <body>
         <Switch>
           <Route path="/" component={Home} exact/>
           <Route path="/portfolio" component={Portfolio}/>
@@ -32,7 +31,6 @@ const App = () => {
           <Route path="/users" component={Users}/>
           <Route component={Error}/>
         </Switch>
-      </body> 
     </BrowserRouter>
     </UserContext.Provider>
 )}

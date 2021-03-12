@@ -63,7 +63,7 @@ function changeColor(newColor)
   let options = new Array (body,logo,banner,nav,active,section);
   let seasons = ["winter","spring","autumn","summer"];
   let newColors = document.getElementsByClassName(seasons[newColor]);
-for (i=0;i<newColors.length;i++)
+for (let i=0;i<newColors.length;i++)
 {
   newColors[i].style.backgroundColor=options[i][0];
   newColors[i].style.color=options[i][1];
@@ -106,7 +106,7 @@ function validateOther()
    let comments = document.getElementById('comments').value;
    let text = [firstName, lastName, phone, email, comments]
    let error = ["errFN","errLN","errPhone","errEmail","errCom"]
-  for (i=0;i<text.length;i++)  
+  for (let i=0;i<text.length;i++)  
   if(text[i] == "")
   {
     document.getElementById(error[i]).innerHTML = "This field is required";
@@ -118,8 +118,8 @@ function validateOther()
 }
 function validate()
 {
-  count = 0
-  for(i=0;i<5;i++)
+  let count = 0
+  for(let i=0;i<5;i++)
   {
     if(document.getElementById(error[i]).innerHTML == "Thank you.")
       {

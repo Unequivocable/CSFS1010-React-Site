@@ -10,7 +10,7 @@ const Entries = () => {
       <Header />
       <Nav entries="active" />
       <main>
-        <section className="winter spring autumn summer">
+        <section>
           <article>
             <ul>
               <EntrybyIDForm /> 

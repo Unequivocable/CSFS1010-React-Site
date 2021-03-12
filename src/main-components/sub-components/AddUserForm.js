@@ -28,17 +28,25 @@ const AddUserForm = () => {
                     .required('Required')
             })}
             onSubmit = {async (values, { setSubmitting, resetForm }) => {
-                delete values.confirmPassword
+                const sendValues = {
+                    name: values.name,
+                    email: values.email,
+                    password: values.password
+                }
                 try {
-                    await axios.post('/users', values)
+                    await axios.post('/users', sendValues)
+                    alert("The new user has been added")
                 } catch(error){
-                    console.log(error.response.data.error)
+                    const response = error.response.data.invalid ? `${error.response.data.message} ${error.response.data.invalid}` : `${error.response.data.message}`;
+                    alert(response)
+                    console.log(error)
                     }
                 setSubmitting(false);
                 resetForm();
             }}
         >
             <Form>
+                <div className="logoGrid">
                 <TextField
                     label="Name"
                     name="name"
@@ -63,7 +71,8 @@ const AddUserForm = () => {
                     type="password"
                     placeholder="password123"
                 />
-                <button type="submit" className="signin">Submit</button>
+                </div>
+                <button type="submit" className="signin form-button">Submit</button>
                 </Form>
         </Formik>
     );

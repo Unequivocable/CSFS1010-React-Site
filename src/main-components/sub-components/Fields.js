@@ -5,10 +5,10 @@ const TextField = ({ label, ...props}) => {
     const [field, meta] = useField(props);
     return (
         <>
-            <label htmlFor={props.id || props.name}>{label}</label><br />
-            <input className="text-input" {...field} {...props} />
+            <label className="col1" htmlFor={props.id || props.name}>{label}</label>
+            <input className="text-input col2" {...field} {...props} />
             {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
+                <div className="error col3">{meta.error}</div>
             ) : null}
         </>
     );
@@ -17,10 +17,10 @@ const TextAreaField = ({ label, ...props}) => {
     const [field, meta] = useField(props);
     return (
         <>
-            <label htmlFor={props.id || props.name}>{label}</label><br />
+            <label className="row4" htmlFor={props.id || props.name}>{label}</label><br />
             <textarea className="form-textarea" {...field} {...props} />
             {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
+                <div className="error col2">{meta.error}</div>
             ) : null}
         </>
     );

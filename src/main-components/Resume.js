@@ -8,7 +8,7 @@ const Resume = () => {
             <Header />
             <Nav resume="active" />
       <main>
-      <section className="winter spring autumn summer">
+      <section>
         <article>
           I am an experienced business analsyt who has worked in the Financial IT sector for over fifteen years.  I am currently expanding my capabilities and upgrading my technical abilities to include full-stack web development and UI/UX Design. 
           <h2>Work Experience</h2>
@@ -23,16 +23,12 @@ const Resume = () => {
           </ul>
           <h3>Education and Certifications</h3>
           <ul>
-           <li  className="resume"><b>Certificate in Full Stack Web Development (pending)</b>
-            York University</li>
-            <li className="resume"><b>Certificate in UX/UI Design (pending)</b>
-          York University</li>
-          <li className="resume"><b>ITIL 5 Foundation Certificate in IT Service Managemnet</b>
-            AXELOS</li>
+           <li  className="resume"><b>Certificate in Full Stack Web Development (pending)</b>  York University</li>
+            <li className="resume"><b>Certificate in UX/UI Design (pending)</b>  York University</li>
+          <li className="resume"><b>ITIL 5 Foundation Certificate in IT Service Managemnet</b>  AXELOS</li>
           <li className="resume"><b>Project Management Professional</b> (2013-2019: not currently active)
               Project Management Institute</li>
-          <li className="resume"><b>Bachelor of Arts, with a major in Theology</b> 
-          Briercrest College</li>
+          <li className="resume"><b>Bachelor of Arts, with a major in Theology</b>  Briercrest College</li>
           </ul>
         </article>
       </section>

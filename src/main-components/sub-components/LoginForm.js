@@ -5,6 +5,7 @@ import { TextField } from './Fields'
 import axios from 'axios'
 import UserContext from './User'
 
+
 const LoginForm = () => {
     const { setLogin, setToken } = useContext(UserContext);
 
@@ -36,6 +37,7 @@ const LoginForm = () => {
             }}
         >
             <Form>
+                <div className="logoGrid">
                 <TextField
                     label="Email"
                     name="email"
@@ -48,6 +50,7 @@ const LoginForm = () => {
                     type="password"
                     placeholder="password123"
                     />
+                    </div>
                 <button type="submit" className="signin">Submit</button>
                 </Form>
         </Formik>

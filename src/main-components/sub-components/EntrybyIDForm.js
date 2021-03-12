@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { TextField } from './Fields'
 import axios from 'axios'
 import UserContext from './User'
@@ -12,12 +11,18 @@ const EntrybyIDForm = () => {
 
     useEffect(() => {
         const getDatabyID = async () => {
+           try{
             const response = await axios({
             method: 'get',
             url: `/contact_form/entries/${id}`,
             headers: { Authorization: `Bearer ${token.token}` }
            });
-        setEntry(response.data);
+            setEntry(response.data);
+            } catch (error) {
+                // const response = error.response.data.invalid ? `${error.response.data.message} ${error.response.data.invalid}` : `${error.response.data.message}`;
+                alert(error)
+                console.log(error);
+            }
         }
         getDatabyID()
     }, [token.token, id]);
@@ -28,10 +33,6 @@ const EntrybyIDForm = () => {
             initialValues = {{
                 id: ""
             }}
-            validationSchema = {Yup.object({
-                id: Yup.string()
-                    .required('Required'),
-            })}
             onSubmit = {(values, { setSubmitting, resetForm }) => {
                 setId(values.id)
                 setSubmitting(false);

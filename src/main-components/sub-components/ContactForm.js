@@ -27,47 +27,47 @@ const ContactForm = () => {
             content: Yup.string()
                 .required('Please include a message'),
         })}
-        onSubmit = {(values, { setSubmitting, resetForm }) => {
-            setTimeout(() => {
-            axios.post('/contact_form/entries', values)
-                .catch(error => console.log(error))
+        onSubmit = {async (values, { setSubmitting, resetForm }) => {
+            try {
+                await axios.post('/contact_form/entries', values)
+                alert(`Your message was submitted successfully`)
+            } catch(error){
+                alert(`The server is unavailable and there was an error in submitting your message.  Please try again later.`)
+                console.log(error)
+                }
             setSubmitting(false);
             resetForm();
-          }, 400);
         }}
     >
         <Form>
-            <ul>
-            <li><TextField
+            <div className="logoGrid">
+            <TextField
                 label="Name"
                 name="name"
                 type="text"
                 placeholder="Jane Doe"
-                /></li>
-            <li><TextField
+                />
+            <TextField
                 label="Email"
                 name="email"
                 type="email"
                 placeholder="jane@doe.com"
-            /></li>
-            <li>
+            />
             <TextField
                 label="Phone Number"
                 name="phoneNumber"
                 type="text"
                 placeholder="1234567890"
-            /></li>
-            <li>
-            <TextAreaField
+            />
+             <TextAreaField
                 label="Enter your message"
                 name="content"
                 type="text"
-            /></li>
-            <li>
-           
-            <button type="submit" className="signin">Submit</button>
-            </li>
-            </ul>
+                placeholder="Your message here"
+            />
+                        </div>
+            <button type="submit" className="signin form-button">Submit</button>
+
         </Form>
     </Formik>
     );

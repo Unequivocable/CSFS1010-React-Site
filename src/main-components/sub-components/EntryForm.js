@@ -8,19 +8,24 @@ const EntryForm = () => {
     
     useEffect(() => {
         const getData = async () => {
-            const response = await axios({
-            method: 'get',
-            url: "contact_form/entries",
-            headers: { Authorization: `Bearer ${token.token}` }
-           });
-        setData(response.data);
+            try {
+                const response = await axios({
+                method: 'get',
+                url: "contact_form/entries",
+                headers: { Authorization: `Bearer ${token.token}` }
+                 });
+                setData(response.data);
+            } catch (error) {
+        // const response = error.response.data.invalid ? `${error.response.data.message} ${error.response.data.invalid}` : `${error.response.data.message}`;
+        alert(error)
+        console.log(error);
+    }
         }
         getData()
     }, [token.token]);
 
     return (
         <>
-            {console.log(data)}
             {data.slice(0).reverse().map(entry => (
                 <li key={entry.id}>Name : {entry.name} <br />
                 Email: {entry.email} <br />

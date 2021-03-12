@@ -1,7 +1,8 @@
 import React from 'react';
-import Form from './sub-components/ContactForm'
+import ContactForm from './sub-components/ContactForm'
 import Nav from './page-components/Nav'
 import Header from './page-components/Header'
+
 
 const Contact = () => {
     return (
@@ -9,15 +10,15 @@ const Contact = () => {
             <Header />
             <Nav contact="active" />
             <main>
-      <section className="winter spring autumn summer">
+      <section>
         <article>
             If you wish to contact me directly, please fill in the following
             form to send me a message. I will reply to you via the provided
             email address.
         </article>
-        <div className="content">
-          <Form />
-          </div>
+        <article className="content">
+          <ContactForm />
+          </article>
     </section>
  </main>
  </>

@@ -9,7 +9,7 @@ const Users = () => {
             <Header />
             <Nav users="active" />
       <main>
-        <section className="winter spring autumn summer">
+        <section>
           <article>
             <AddUserForm />
             </article>

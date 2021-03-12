@@ -1,0 +1,145 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #d5d5d5;
+}
+h1 {
+    font-size: 42px;
+}
+h2 {
+    font-size: 36px;
+    color: gray;
+}
+h1, h2 {
+        font-weight: normal;
+} 
+.page-container {
+    width: 90%;
+    max-width: 1100px;
+    height: auto;
+    margin: 30px 10%;
+}
+.c1-page-container {
+    width: 90%;
+    max-width: 1100px;
+    height: auto;
+    margin: 30px 10%;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+.c3-page-container {
+    width: 90%;
+    max-width: 1100px;
+    height: auto;
+    margin: 30px 10%;
+	background: linear-gradient(-45deg, black, gray, black, #d5d5d5);
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+}
+.c2-page-container {
+    width: 90%;
+    max-width: 1100px;
+    height: auto;
+    margin: 30px 10%;
+	background: linear-gradient(-90deg, red, blue, orange, purple);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.main-container{
+    position: relative;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: stretch;
+    gap: 20px 20px;
+    grid-template: repeat(4, auto)/repeat(3, auto);
+}
+.header-position {
+    grid-column: 1 / 1;
+    justify-self: left;
+    align-self: center;
+}
+.item1 {
+    z-index: 1;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+.item2 {
+    z-index: 1;
+    grid-row: 1 / span 2;
+    grid-column: 2 / 2;
+}
+.item3 {
+    z-index: 1;
+    grid-row: 1 / 1;
+    grid-column: 3 / 3;
+}
+.item4 {
+    z-index: 1;
+    grid-row: 2 / span 2;
+    grid-column: 1 / 1;
+}
+.item5 {
+    z-index: 1;
+    grid-row: 2 / span 2;
+    grid-column: 3 / 3;
+}
+.item6 {
+    z-index: 1;
+    grid-row: 3 / 3;
+    grid-column: 2 / 2;
+}
+.overlay {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(256,0,0,0);
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(255, 255, 255, 1) 0%, 
+        rgb(255, 255, 255, .75) 50%,
+        rgba(256,0,0,0) 51%, 
+        rgba(256,0,0,0) 100%);
+    z-index: 2;
+    text-indent: 15px;
+    line-height: 5px;
+}
+.overlay:hover {
+    opacity: 1;
+}
+.c-overlay {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-image: url(https://www.placecage.com/200/309);
+    background-repeat: round;
+    z-index: 2;
+}
+.c-overlay:hover {
+    opacity: 1;
+}
+footer a{
+    padding: 20px;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: gray;
+}
+a:hover {
+    color: blue;
+}

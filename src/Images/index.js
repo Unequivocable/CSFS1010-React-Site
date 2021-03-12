@@ -5,6 +5,7 @@ export { default as puppyAgePreview } from './puppyAgePreview.jpg'
 export { default as soccerPreview } from './soccerPreview.jpg'
 export { default as trianglePreview } from './trianglePreview.jpg'
 export { default as oldSitePreview } from './oldsitePreview.png'
-
+export { default as todoPreview } from './todoPreview.png'
+export { default as gridPreview } from './gridPreview.png'
 
 
